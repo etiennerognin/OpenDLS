@@ -17,8 +17,10 @@ At this stage, there are only two files:
 
 ## Usage
 
-Open 'ArduinoDLS.ino' in the Arduino IDE, compile and upload to the Arduino.
-Open 'OpenDLS.py' with a text editor, 
+1. Open 'ArduinoDLS.ino' in the Arduino IDE, compile and upload to the Arduino.
+2. Leave the Arduino connected with the USB cable.
+3. Open 'OpenDLS.py' with a text editor, set the address of the Arduino.
+4. Launch 'OpenDLS.py' in a terminal. You may need to install some Python libraries.
 
 
 ## License
