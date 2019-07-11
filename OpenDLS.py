@@ -94,15 +94,17 @@ if __name__ == '__main__':
     # scattering vector
     q = 4*np.pi/lambd*n_s*np.sin(theta/2)
     
+    tau = 1e-6*time[:N_points/2]
+    ydata = auto_cum[:N_points/2]
+    
     # Function to fit
     def g(tau, a, b, c):
         return a*np.ones_like(tau) + b*np.exp(-c*tau)
         
-    tau = 1e-6*time[:N_points/2]
-    ydata = auto_cum[:N_points/2]
+    
     # initial guess
-    a0 = auto_cum[-1]
-    b0 = auto_cum[0] - a0
+    a0 = ydata[-1]
+    b0 = ydata[0] - a0
     c0 = 2*q**2*k*T/(18*1e-7*eta_s)
 
     popt, pcov = curve_fit(g, tau, ydata, p0=[a0, b0, c0])
@@ -128,4 +130,6 @@ if __name__ == '__main__':
     plt.ylabel('Auto-correlation')
     plt.legend()
     plt.show()
+    
+    
     
