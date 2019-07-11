@@ -16,14 +16,16 @@ void setup() {
   Serial.begin(115200);
 
   // set prescale to 16
-  cbi(ADCSRA, ADPS2) ; // cbi means clear bit
-  sbi(ADCSRA, ADPS1) ; // sbi means set bit
-  sbi(ADCSRA, ADPS0) ;
+  sbi(ADCSRA, ADPS2) ; // cbi means clear bit
+  cbi(ADCSRA, ADPS1) ; // sbi means set bit
+  cbi(ADCSRA, ADPS0) ;
 }
 
 void loop() {
   // Read scattering values
   // ======================
+
+  //dummy = analogRead(A0); // this is because the first point is usually of bad quality
   
   t0 = micros();
   
@@ -43,6 +45,6 @@ void loop() {
   }
   Serial.println(t);
   
-  delay(100);
+  delay(10);
 
 }
