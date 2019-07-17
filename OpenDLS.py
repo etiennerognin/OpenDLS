@@ -48,6 +48,7 @@ if __name__ == '__main__':
     
     #start serial com
     ser = serial.Serial(address,baud)
+    ser.readline()  # Fix for Windows: read and discard first input
     print 'iter, duration, time step'
     print '-------------------------'
 
